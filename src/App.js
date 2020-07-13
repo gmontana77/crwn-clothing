@@ -10,7 +10,7 @@ import Header from './components/header/header.component';
 import { auth } from './firebase/firebase.utils';
 
 class App extends React.Component {
-  constructor(){
+  constructor() {
     super();
 
     this.state = {
@@ -18,34 +18,32 @@ class App extends React.Component {
     };
   }
 
-  unsubscribeFromAuth = null
+  unsubscribeFromAuth = null;
 
   componentDidMount() {
-   this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState( { currentUser: user });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      this.setState({ currentUser: user });
 
       console.log(user);
     });
   }
 
-componentWillUnmount() {
-  this.unsubscribeFromAuth();
-}
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
 
   render() {
     return (
       <div>
-        <Header cunrrentUser={this.state.currentUser} />
+        <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
           <Route path='/signin' component={SignInAndSignUpPage} />
         </Switch>
       </div>
-      
     );
   }
-  
 }
 
 export default App;
