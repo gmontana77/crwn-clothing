@@ -1,6 +1,6 @@
-## Lesson-16
+## Lesson-18
 
-Now that we have created all the redux code for storing our data, now we are going to connect our items to add them to our cart.
+We want to separate all our business logic in our selectors. In this lesson we add a new selector to show our total count of items.
 
 # How to fork and clone
 
